@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGORA</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>AGORA</h1>
+                <p class="tagline">Real-time pricing for the agent economy</p>
+            </div>
+            <div class="header-status">
+                <span id="last-update" class="status-text">Last updated: --</span>
+                <span id="connection-status" class="status-indicator">●</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-label">Providers</span>
+            <span id="stat-providers" class="stat-value">--</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Services</span>
+            <span id="stat-services" class="stat-value">--</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Data Points</span>
+            <span id="stat-datapoints" class="stat-value">--</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Avg Confidence</span>
+            <span id="stat-confidence" class="stat-value">--</span>
+        </div>
+    </section>
+
+    <!-- Main Navigation -->
+    <section class="nav-section">
+        <div class="nav-container">
+            <button class="nav-btn active" data-tab="rates">Rate Explorer</button>
+            <button class="nav-btn" data-tab="agent-marketplace">Agent Marketplace</button>
+            <button class="nav-btn" data-tab="smart-router">Smart Router</button>
+        </div>
+    </section>
+
+    <!-- Rates Tab -->
+    <div id="tab-rates" class="tab-content active">
+        <!-- Category Filter -->
+        <section class="filter-section">
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">All Categories</button>
+                <button class="filter-btn" data-category="text-generation">Text Generation</button>
+                <button class="filter-btn" data-category="text-translation">Translation</button>
+                <button class="filter-btn" data-category="code-generation">Code Generation</button>
+                <button class="filter-btn" data-category="code-review">Code Review</button>
+                <button class="filter-btn" data-category="image-generation">Image Generation</button>
+                <button class="filter-btn" data-category="voice-transcription">Voice Transcription</button>
+                <button class="filter-btn" data-category="voice-synthesis">Voice Synthesis</button>
+                <button class="filter-btn" data-category="data-analysis">Data Analysis</button>
+                <button class="filter-btn" data-category="document-processing">Documents</button>
+                <button class="filter-btn" data-category="search-web">Web Search</button>
+                <button class="filter-btn" data-category="search-code">Code Search</button>
+                <button class="filter-btn" data-category="task-automation">Automation</button>
+                <button class="filter-btn" data-category="agent-orchestration">Orchestration</button>
+            </div>
+        </section>
+
+        <!-- Price Comparison Table -->
+        <section class="table-section">
+            <h2 class="section-title">Price Comparison</h2>
+            <div class="table-wrapper">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="category">Category <span class="sort-icon">▼</span></th>
+                            <th class="sortable" data-sort="subcategory">Subcategory <span class="sort-icon">▼</span></th>
+                            <th class="sortable" data-sort="price">Price <span class="sort-icon">▼</span></th>
+                            <th class="sortable" data-sort="unit">Unit <span class="sort-icon">▼</span></th>
+                            <th class="sortable" data-sort="sourceCount">Sources <span class="sort-icon">▼</span></th>
+                            <th class="sortable" data-sort="confidence">Confidence <span class="sort-icon">▼</span></th>
+                            <th class="sortable" data-sort="trend">Trend <span class="sort-icon">▼</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="price-table-body">
+                        <!-- Table rows inserted by JavaScript -->
+                    </tbody>
+                </table>
+                <div id="table-empty" class="empty-state" style="display:none;">
+                    <p>No pricing data available for this filter</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Provider Cards -->
+        <section class="providers-section">
+            <h2 class="section-title">Top Providers</h2>
+            <div id="provider-cards" class="provider-grid">
+                <!-- Provider cards inserted by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Price Trends (Forecast) -->
+        <section class="forecast-section">
+            <h2 class="section-title">Price Trends & Forecast</h2>
+
+            <!-- Skill Selector -->
+            <div class="forecast-controls">
+                <label for="forecast-skill-select">Select Skill:</label>
+                <select id="forecast-skill-select" class="form-select">
+                    <option value="">-- Select a skill --</option>
+                </select>
+                <button id="fetch-forecast-btn" class="primary-btn">Show Forecast</button>
+            </div>
+
+            <!-- Forecast Display -->
+            <div id="forecast-container" style="display:none;">
+                <!-- Trend Indicator -->
+                <div id="forecast-trend-indicator" class="trend-indicator">
+                    <div id="forecast-trend-arrow" class="trend-arrow">→</div>
+                    <div id="forecast-trend-text" class="trend-text">Loading...</div>
+                </div>
+
+                <!-- Recommendation Card -->
+                <div id="forecast-recommendation-card" class="recommendation-card">
+                    <h3>💡 Recommendation</h3>
+                    <p id="forecast-recommendation-text">--</p>
+                </div>
+
+                <!-- Model Accuracy Badge -->
+                <div id="forecast-accuracy-badge" class="accuracy-badge" style="display:none;">
+                    <span>Forecast Accuracy: <strong id="forecast-accuracy-value">--</strong></span>
+                </div>
+
+                <!-- Forecast Chart -->
+                <div id="forecast-chart-container" class="forecast-chart-container">
+                    <canvas id="forecast-chart" width="800" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="forecast-empty" class="empty-state">
+                <p>Select a skill and click "Show Forecast" to view price predictions for the next 7 days.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Agent Marketplace Tab -->
+    <div id="tab-agent-marketplace" class="tab-content">
+        <!-- Search Bar -->
+        <section class="marketplace-section">
+            <h2 class="section-title">Search Agent Services</h2>
+            <div class="search-form">
+                <input type="text" id="marketplace-skill-input" placeholder="Enter skill (e.g., text-generation/chat)" class="form-input">
+                <button id="search-agents-btn" class="primary-btn">Search Agents</button>
+            </div>
+        </section>
+
+        <!-- Market Stats Card -->
+        <section class="marketplace-section">
+            <div id="market-stats-card" class="market-stats" style="display:none;">
+                <div class="stat-card">
+                    <span class="stat-card-label">Market Median</span>
+                    <span id="market-median" class="stat-card-value">$0.000</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-card-label">Price Range</span>
+                    <span id="market-range" class="stat-card-value">$0 - $0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-card-label">Total Agents</span>
+                    <span id="market-total" class="stat-card-value">0</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-card-label">Avg Uptime</span>
+                    <span id="market-uptime" class="stat-card-value">0%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Value Highlight -->
+        <section class="marketplace-section">
+            <div id="best-value-card" class="best-value-card" style="display:none;">
+                <div class="best-value-badge">⭐ Best Value</div>
+                <div class="best-value-content">
+                    <h3 id="best-value-name">--</h3>
+                    <p>Price: <span id="best-value-price" class="text-accent">--</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="marketplace-section">
+            <h2 class="section-title">Agent Comparison</h2>
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Agent Name</th>
+                            <th>Price</th>
+                            <th>Unit</th>
+                            <th>Uptime</th>
+                            <th>Latency</th>
+                            <th>Rating</th>
+                            <th>Savings</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparison-table-body">
+                        <tr><td colspan="9" class="empty-state">Enter a skill and click "Search Agents" to see comparison</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Price History Chart -->
+        <section class="marketplace-section">
+            <div id="price-history-section" style="display:none;">
+                <h2 class="section-title">Price History</h2>
+                <div id="chart-stats" class="chart-stats">
+                    <p>Loading...</p>
+                </div>
+                <div id="price-history-canvas" class="price-chart-container" style="display:none;">
+                    <!-- SVG chart will be rendered here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Smart Router Tab -->
+    <div id="tab-smart-router" class="tab-content">
+        <!-- Agent Registration -->
+        <section class="smart-section">
+            <h2 class="section-title">Agent Registration</h2>
+            <div class="agent-form">
+                <input type="text" id="agent-name" placeholder="Enter agent name" class="form-input">
+                <button id="generate-key-btn" class="primary-btn">Generate API Key</button>
+            </div>
+            <div id="agent-info" class="agent-info" style="display:none;">
+                <p><strong>Agent ID:</strong> <span id="agent-id">--</span></p>
+                <p><strong>API Key:</strong> <code id="agent-api-key">--</code> <button id="copy-key-btn" class="copy-btn">Copy</button></p>
+            </div>
+        </section>
+
+        <!-- Budget Status -->
+        <section class="smart-section">
+            <h2 class="section-title">Budget Status</h2>
+            <div class="budget-container">
+                <div class="budget-bar">
+                    <div id="budget-progress" class="budget-progress" style="width:0%;"></div>
+                </div>
+                <div class="budget-stats">
+                    <span id="budget-spent" class="budget-stat">$0.00</span>
+                    <span id="budget-limit" class="budget-stat">/ $0.00</span>
+                    <span id="budget-percent" class="budget-stat">(0%)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Savings Summary -->
+        <section class="smart-section">
+            <h2 class="section-title">Monthly Savings</h2>
+            <div class="savings-card">
+                <div class="savings-amount">$<span id="total-savings">0.00</span></div>
+                <div class="savings-percent">(<span id="savings-percent">0</span>% saved)</div>
+                <p class="savings-note">Compared to most expensive provider</p>
+            </div>
+        </section>
+
+        <!-- Recent Requests -->
+        <section class="smart-section">
+            <h2 class="section-title">Recent Requests</h2>
+            <div class="table-wrapper">
+                <table class="requests-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Provider</th>
+                            <th>Category</th>
+                            <th>Cost</th>
+                            <th>Latency</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requests-table-body">
+                        <tr><td colspan="6" class="empty-state">No requests yet. Register an agent and start using Smart Router.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Savings Calculator Widget -->
+        <section class="smart-section">
+            <h2 class="section-title">Savings Calculator</h2>
+            <div class="calculator-form">
+                <div class="form-row">
+                    <label>Current Monthly Spend ($)</label>
+                    <input type="number" id="calc-spend" placeholder="e.g., 500" class="form-input">
+                </div>
+                <div class="form-row">
+                    <label>Primary Provider</label>
+                    <select id="calc-provider" class="form-select">
+                        <option value="">-- Select Provider --</option>
+                    </select>
+                </div>
+                <button id="calculate-savings-btn" class="primary-btn">Calculate Savings</button>
+            </div>
+            <div id="calc-result" class="calc-result" style="display:none;">
+                <p class="calc-message">Switch to <strong id="calc-best">--</strong> and save <strong class="savings-highlight">$<span id="calc-savings">0</span>/month (<span id="calc-percent">0</span>%)</strong></p>
+            </div>
+        </section>
+
+        <!-- Price Alerts -->
+        <section class="smart-section">
+            <h2 class="section-title">Price Alerts</h2>
+
+            <!-- Create Alert Form -->
+            <div class="alert-form">
+                <div class="form-row">
+                    <label>Alert Type</label>
+                    <select id="alert-type" class="form-select">
+                        <option value="price_threshold">Price Threshold</option>
+                        <option value="price_drop">Price Drop</option>
+                        <option value="any_change">Any Change</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label>Target Skill</label>
+                    <input type="text" id="alert-skill" placeholder="e.g., text-generation/chat" class="form-input">
+                </div>
+                <div class="form-row" id="max-price-row">
+                    <label>Max Price ($)</label>
+                    <input type="number" id="alert-max-price" step="0.0001" placeholder="e.g., 0.015" class="form-input">
+                </div>
+                <div class="form-row">
+                    <label>Notification Method</label>
+                    <select id="alert-notify-method" class="form-select">
+                        <option value="webhook">Webhook</option>
+                        <option value="email">Email</option>
+                        <option value="websocket">WebSocket (Real-time)</option>
+                    </select>
+                </div>
+                <div class="form-row" id="webhook-url-row">
+                    <label>Webhook URL</label>
+                    <input type="url" id="alert-webhook-url" placeholder="https://your-server.com/webhook" class="form-input">
+                </div>
+                <div class="form-row" id="email-row" style="display:none;">
+                    <label>Email</label>
+                    <input type="email" id="alert-email" placeholder="agent@example.com" class="form-input">
+                </div>
+                <button id="create-alert-btn" class="primary-btn">Create Alert</button>
+            </div>
+
+            <!-- Active Alerts Table -->
+            <div class="table-wrapper" style="margin-top: 20px;">
+                <h3 class="subsection-title">Active Alerts</h3>
+                <table class="alerts-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Skill/Provider</th>
+                            <th>Max Price</th>
+                            <th>Method</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alerts-table-body">
+                        <tr><td colspan="6" class="empty-state">No alerts configured. Create one above.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Alert History -->
+            <div class="table-wrapper" style="margin-top: 20px;">
+                <h3 class="subsection-title">Recent Triggers</h3>
+                <table class="alert-history-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Skill</th>
+                            <th>Old Price</th>
+                            <th>New Price</th>
+                            <th>Savings</th>
+                            <th>Notified</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alert-history-body">
+                        <tr><td colspan="6" class="empty-state">No alerts triggered yet.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- WebSocket Status -->
+            <div id="websocket-status" class="websocket-status" style="display:none; margin-top: 15px;">
+                <span class="ws-indicator">●</span>
+                <span class="ws-text">WebSocket: <span id="ws-status-text">Disconnected</span></span>
+                <button id="ws-toggle-btn" class="secondary-btn">Connect</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>AGORA v0.1.0 | API: <a href="/health">/health</a> | <a href="/v1/rates">/v1/rates</a> | <a href="/v1/providers">/v1/providers</a></p>
+        <p class="footer-note">Data updated every 5 minutes. Prices in USD unless specified.</p>
+    </footer>
+
+    <script src="/app.js"></script>
+</body>
+</html>

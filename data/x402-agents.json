@@ -1,0 +1,488 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-24T10:12:00Z",
+  "source": "x402-bazaar-mock",
+  "description": "Mock data for x402 Bazaar agent services (Phase 1 testing)",
+  "agents": [
+    {
+      "agentId": "agent_deepseek_chat",
+      "agentName": "DeepSeek Chat Pro",
+      "skill": "text-generation/chat",
+      "price": 0.01,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.998,
+      "avgLatency": 250,
+      "rating": 4.8,
+      "reviews": 120,
+      "x402Endpoint": "https://api.deepseek.com/v1/chat",
+      "bazaarUrl": "https://bazaar.x402.org/agents/deepseek_chat",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "maxTokens": 8192,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_anthropic_haiku",
+      "agentName": "Claude Haiku Service",
+      "skill": "text-generation/chat",
+      "price": 0.015,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.999,
+      "avgLatency": 180,
+      "rating": 4.9,
+      "reviews": 340,
+      "x402Endpoint": "https://api.anthropic.com/v1/messages",
+      "bazaarUrl": "https://bazaar.x402.org/agents/anthropic_haiku",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "maxTokens": 200000,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_openai_gpt4o_mini",
+      "agentName": "OpenAI GPT-4o-mini Service",
+      "skill": "text-generation/chat",
+      "price": 0.025,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.997,
+      "avgLatency": 220,
+      "rating": 4.7,
+      "reviews": 890,
+      "x402Endpoint": "https://api.openai.com/v1/chat/completions",
+      "bazaarUrl": "https://bazaar.x402.org/agents/openai_gpt4o_mini",
+      "metadata": {
+        "chain": "base",
+        "verified": true,
+        "maxTokens": 16384,
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_gemini_flash",
+      "agentName": "Gemini Flash 2.0",
+      "skill": "text-generation/chat",
+      "price": 0.012,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.996,
+      "avgLatency": 280,
+      "rating": 4.6,
+      "reviews": 450,
+      "x402Endpoint": "https://api.google.com/v1/gemini",
+      "bazaarUrl": "https://bazaar.x402.org/agents/gemini_flash",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "maxTokens": 32768,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_llama_70b",
+      "agentName": "Llama 3.1 70B Service",
+      "skill": "text-generation/completion",
+      "price": 0.008,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.994,
+      "avgLatency": 320,
+      "rating": 4.5,
+      "reviews": 280,
+      "x402Endpoint": "https://api.together.xyz/v1/completions",
+      "bazaarUrl": "https://bazaar.x402.org/agents/llama_70b",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "maxTokens": 8192,
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_codestral",
+      "agentName": "Codestral Code Expert",
+      "skill": "text-generation/code",
+      "price": 0.018,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.998,
+      "avgLatency": 240,
+      "rating": 4.9,
+      "reviews": 560,
+      "x402Endpoint": "https://api.mistral.ai/v1/chat",
+      "bazaarUrl": "https://bazaar.x402.org/agents/codestral",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "maxTokens": 32000,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_qwen_coder",
+      "agentName": "Qwen 2.5 Coder",
+      "skill": "text-generation/code",
+      "price": 0.009,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.995,
+      "avgLatency": 290,
+      "rating": 4.4,
+      "reviews": 190,
+      "x402Endpoint": "https://api.qwen.ai/v1/completions",
+      "bazaarUrl": "https://bazaar.x402.org/agents/qwen_coder",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "maxTokens": 8192,
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_stable_diffusion_xl",
+      "agentName": "Stable Diffusion XL",
+      "skill": "image-generation/standard",
+      "price": 0.02,
+      "unit": "per_image",
+      "currency": "USDC",
+      "uptime": 0.995,
+      "avgLatency": 3500,
+      "rating": 4.6,
+      "reviews": 450,
+      "x402Endpoint": "https://api.stability.ai/v1/generation",
+      "bazaarUrl": "https://bazaar.x402.org/agents/stable_diffusion_xl",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "resolution": "1024x1024",
+        "responseTime": "slow"
+      }
+    },
+    {
+      "agentId": "agent_dalle3",
+      "agentName": "DALL-E 3 Service",
+      "skill": "image-generation/hd",
+      "price": 0.08,
+      "unit": "per_image",
+      "currency": "USDC",
+      "uptime": 0.997,
+      "avgLatency": 4200,
+      "rating": 4.8,
+      "reviews": 780,
+      "x402Endpoint": "https://api.openai.com/v1/images/generations",
+      "bazaarUrl": "https://bazaar.x402.org/agents/dalle3",
+      "metadata": {
+        "chain": "base",
+        "verified": true,
+        "resolution": "1792x1024",
+        "responseTime": "slow"
+      }
+    },
+    {
+      "agentId": "agent_midjourney_proxy",
+      "agentName": "Midjourney Proxy",
+      "skill": "image-generation/standard",
+      "price": 0.035,
+      "unit": "per_image",
+      "currency": "USDC",
+      "uptime": 0.992,
+      "avgLatency": 5800,
+      "rating": 4.7,
+      "reviews": 620,
+      "x402Endpoint": "https://api.midjourney-proxy.com/v1/imagine",
+      "bazaarUrl": "https://bazaar.x402.org/agents/midjourney_proxy",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": false,
+        "resolution": "1024x1024",
+        "responseTime": "very_slow"
+      }
+    },
+    {
+      "agentId": "agent_flux_pro",
+      "agentName": "Flux Pro Image Gen",
+      "skill": "image-generation/hd",
+      "price": 0.055,
+      "unit": "per_image",
+      "currency": "USDC",
+      "uptime": 0.996,
+      "avgLatency": 3800,
+      "rating": 4.9,
+      "reviews": 340,
+      "x402Endpoint": "https://api.flux.ai/v1/generate",
+      "bazaarUrl": "https://bazaar.x402.org/agents/flux_pro",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "resolution": "2048x2048",
+        "responseTime": "slow"
+      }
+    },
+    {
+      "agentId": "agent_whisper_transcribe",
+      "agentName": "Whisper Transcription",
+      "skill": "audio/transcription",
+      "price": 0.006,
+      "unit": "per_minute",
+      "currency": "USDC",
+      "uptime": 0.996,
+      "avgLatency": 1200,
+      "rating": 4.5,
+      "reviews": 230,
+      "x402Endpoint": "https://api.openai.com/v1/audio/transcriptions",
+      "bazaarUrl": "https://bazaar.x402.org/agents/whisper",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "languages": 99,
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_assemblyai_transcribe",
+      "agentName": "AssemblyAI Transcription",
+      "skill": "audio/transcription",
+      "price": 0.004,
+      "unit": "per_minute",
+      "currency": "USDC",
+      "uptime": 0.998,
+      "avgLatency": 980,
+      "rating": 4.7,
+      "reviews": 410,
+      "x402Endpoint": "https://api.assemblyai.com/v2/transcript",
+      "bazaarUrl": "https://bazaar.x402.org/agents/assemblyai",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "languages": 50,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_elevenlabs_tts",
+      "agentName": "ElevenLabs TTS Pro",
+      "skill": "audio/generation",
+      "price": 0.15,
+      "unit": "per_1k_chars",
+      "currency": "USDC",
+      "uptime": 0.997,
+      "avgLatency": 1500,
+      "rating": 4.9,
+      "reviews": 890,
+      "x402Endpoint": "https://api.elevenlabs.io/v1/text-to-speech",
+      "bazaarUrl": "https://bazaar.x402.org/agents/elevenlabs_tts",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "voices": 120,
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_openai_tts",
+      "agentName": "OpenAI TTS Service",
+      "skill": "audio/generation",
+      "price": 0.015,
+      "unit": "per_1k_chars",
+      "currency": "USDC",
+      "uptime": 0.998,
+      "avgLatency": 1100,
+      "rating": 4.6,
+      "reviews": 560,
+      "x402Endpoint": "https://api.openai.com/v1/audio/speech",
+      "bazaarUrl": "https://bazaar.x402.org/agents/openai_tts",
+      "metadata": {
+        "chain": "base",
+        "verified": true,
+        "voices": 6,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_voyage_embeddings",
+      "agentName": "Voyage Embeddings",
+      "skill": "embeddings/text",
+      "price": 0.0001,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.999,
+      "avgLatency": 120,
+      "rating": 4.8,
+      "reviews": 340,
+      "x402Endpoint": "https://api.voyageai.com/v1/embeddings",
+      "bazaarUrl": "https://bazaar.x402.org/agents/voyage_embeddings",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "dimensions": 1024,
+        "responseTime": "very_fast"
+      }
+    },
+    {
+      "agentId": "agent_openai_ada",
+      "agentName": "OpenAI Ada Embeddings",
+      "skill": "embeddings/text",
+      "price": 0.00013,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.998,
+      "avgLatency": 150,
+      "rating": 4.7,
+      "reviews": 680,
+      "x402Endpoint": "https://api.openai.com/v1/embeddings",
+      "bazaarUrl": "https://bazaar.x402.org/agents/openai_ada",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "dimensions": 1536,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_cohere_embed",
+      "agentName": "Cohere Embed v3",
+      "skill": "embeddings/multimodal",
+      "price": 0.0002,
+      "unit": "per_1k_tokens",
+      "currency": "USDC",
+      "uptime": 0.997,
+      "avgLatency": 180,
+      "rating": 4.6,
+      "reviews": 290,
+      "x402Endpoint": "https://api.cohere.com/v1/embed",
+      "bazaarUrl": "https://bazaar.x402.org/agents/cohere_embed",
+      "metadata": {
+        "chain": "base",
+        "verified": true,
+        "dimensions": 1024,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_web_scraper_pro",
+      "agentName": "Web Scraper Pro",
+      "skill": "web/scraping",
+      "price": 0.05,
+      "unit": "per_page",
+      "currency": "USDC",
+      "uptime": 0.995,
+      "avgLatency": 2500,
+      "rating": 4.5,
+      "reviews": 180,
+      "x402Endpoint": "https://api.scraper-pro.com/v1/scrape",
+      "bazaarUrl": "https://bazaar.x402.org/agents/web_scraper_pro",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "jsRendering": true,
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_bright_data_scraper",
+      "agentName": "BrightData Scraper",
+      "skill": "web/crawling",
+      "price": 0.08,
+      "unit": "per_page",
+      "currency": "USDC",
+      "uptime": 0.998,
+      "avgLatency": 1800,
+      "rating": 4.8,
+      "reviews": 520,
+      "x402Endpoint": "https://api.brightdata.com/v1/collect",
+      "bazaarUrl": "https://bazaar.x402.org/agents/bright_data",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "proxyNetwork": true,
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_gpt4_vision",
+      "agentName": "GPT-4o Vision Service",
+      "skill": "vision/analysis",
+      "price": 0.04,
+      "unit": "per_image",
+      "currency": "USDC",
+      "uptime": 0.997,
+      "avgLatency": 1600,
+      "rating": 4.7,
+      "reviews": 430,
+      "x402Endpoint": "https://api.openai.com/v1/chat/completions",
+      "bazaarUrl": "https://bazaar.x402.org/agents/gpt4_vision",
+      "metadata": {
+        "chain": "base",
+        "verified": true,
+        "maxImageSize": "20MB",
+        "responseTime": "medium"
+      }
+    },
+    {
+      "agentId": "agent_claude_vision",
+      "agentName": "Claude Vision Pro",
+      "skill": "vision/analysis",
+      "price": 0.048,
+      "unit": "per_image",
+      "currency": "USDC",
+      "uptime": 0.999,
+      "avgLatency": 1400,
+      "rating": 4.9,
+      "reviews": 670,
+      "x402Endpoint": "https://api.anthropic.com/v1/messages",
+      "bazaarUrl": "https://bazaar.x402.org/agents/claude_vision",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "maxImageSize": "32MB",
+        "responseTime": "fast"
+      }
+    },
+    {
+      "agentId": "agent_data_analyst",
+      "agentName": "AI Data Analyst",
+      "skill": "data/analysis",
+      "price": 0.25,
+      "unit": "per_query",
+      "currency": "USDC",
+      "uptime": 0.994,
+      "avgLatency": 4500,
+      "rating": 4.4,
+      "reviews": 120,
+      "x402Endpoint": "https://api.data-analyst.ai/v1/analyze",
+      "bazaarUrl": "https://bazaar.x402.org/agents/data_analyst",
+      "metadata": {
+        "chain": "solana",
+        "verified": true,
+        "maxDataSize": "100MB",
+        "responseTime": "slow"
+      }
+    },
+    {
+      "agentId": "agent_pdf_extractor",
+      "agentName": "Smart PDF Extractor",
+      "skill": "data/extraction",
+      "price": 0.10,
+      "unit": "per_document",
+      "currency": "USDC",
+      "uptime": 0.996,
+      "avgLatency": 3200,
+      "rating": 4.6,
+      "reviews": 280,
+      "x402Endpoint": "https://api.pdf-extractor.ai/v1/extract",
+      "bazaarUrl": "https://bazaar.x402.org/agents/pdf_extractor",
+      "metadata": {
+        "chain": "ethereum",
+        "verified": true,
+        "maxPages": 500,
+        "responseTime": "medium"
+      }
+    }
+  ]
+}

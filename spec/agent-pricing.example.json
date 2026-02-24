@@ -1,0 +1,235 @@
+[
+  {
+    "$comment": "Example 1: Text Translation Provider with per-request pricing and language-pair dynamic factors",
+    "version": "1.0.0",
+    "agentId": "did:web:linguaflow.ai:agents:neural-translator-v3",
+    "provider": {
+      "name": "LinguaFlow AI",
+      "type": "agent",
+      "url": "https://linguaflow.ai",
+      "contact": "api-support@linguaflow.ai"
+    },
+    "updated": "2026-02-24T00:00:00Z",
+    "currency": "USD",
+    "services": [
+      {
+        "skill": "text-translation",
+        "description": "Neural machine translation supporting 100+ language pairs with context-aware translation and domain specialization",
+        "pricing": {
+          "type": "per-request",
+          "base": 0.02,
+          "unit": "request",
+          "volume": {
+            "1000": 0.018,
+            "10000": 0.015,
+            "100000": 0.012
+          }
+        },
+        "sla": {
+          "latency_p95_ms": 250,
+          "uptime": 0.9995,
+          "rate_limit": {
+            "requests": 100,
+            "period": "minute"
+          }
+        },
+        "payment": {
+          "protocols": ["stripe", "crypto", "invoice"],
+          "networks": ["ethereum", "polygon"],
+          "tokens": ["USDC", "USDT"]
+        },
+        "reputation": {
+          "score": 0.94,
+          "reviews": 3847,
+          "successRate": 0.989
+        },
+        "dynamicFactors": {
+          "language-pairs": {
+            "en-es": 1.0,
+            "en-fr": 1.0,
+            "en-de": 1.0,
+            "en-zh": 1.3,
+            "en-ja": 1.4,
+            "en-ar": 1.5,
+            "zh-ja": 1.6,
+            "rare-pairs": 2.0
+          },
+          "domain-specialization": {
+            "general": 1.0,
+            "technical": 1.2,
+            "legal": 1.5,
+            "medical": 1.8
+          },
+          "urgency": {
+            "standard": 1.0,
+            "express": 1.5,
+            "instant": 2.0
+          }
+        }
+      }
+    ],
+    "metadata": {
+      "schema": "https://agent-rate-oracle.org/schemas/agent-pricing.schema.json",
+      "regions": ["us-east", "eu-west", "ap-south"],
+      "tags": ["translation", "nlp", "multilingual", "enterprise"]
+    }
+  },
+  {
+    "$comment": "Example 2: Code Review Provider with per-token pricing",
+    "version": "1.0.0",
+    "agentId": "uuid:7f9a2b3c-4d5e-6789-a0b1-c2d3e4f56789",
+    "provider": {
+      "name": "CodeGuardian AI",
+      "type": "agent",
+      "url": "https://codeguardian.dev",
+      "contact": "enterprise@codeguardian.dev"
+    },
+    "updated": "2026-02-23T18:30:00Z",
+    "currency": "USD",
+    "services": [
+      {
+        "skill": "code-review",
+        "description": "Automated code review with security vulnerability detection, best practices enforcement, and performance optimization suggestions",
+        "pricing": {
+          "type": "per-token",
+          "base": 0.00001,
+          "unit": "token",
+          "inputPrice": 0.000008,
+          "outputPrice": 0.000015,
+          "volume": {
+            "1000000": 0.000009,
+            "10000000": 0.000007,
+            "100000000": 0.000005
+          }
+        },
+        "sla": {
+          "latency_p95_ms": 3000,
+          "uptime": 0.999,
+          "rate_limit": {
+            "requests": 50,
+            "period": "minute"
+          }
+        },
+        "payment": {
+          "protocols": ["x402", "stripe", "crypto"],
+          "networks": ["base", "polygon", "arbitrum"],
+          "tokens": ["USDC"]
+        },
+        "reputation": {
+          "score": 0.91,
+          "reviews": 1249,
+          "successRate": 0.97
+        },
+        "dynamicFactors": {
+          "language-support": {
+            "javascript": 1.0,
+            "typescript": 1.0,
+            "python": 1.0,
+            "go": 1.1,
+            "rust": 1.2,
+            "cpp": 1.3,
+            "solidity": 1.5
+          },
+          "depth": {
+            "basic": 1.0,
+            "standard": 1.3,
+            "comprehensive": 1.8,
+            "security-audit": 2.5
+          },
+          "framework-analysis": {
+            "none": 1.0,
+            "react": 1.2,
+            "nextjs": 1.3,
+            "django": 1.3,
+            "spring": 1.4
+          }
+        }
+      }
+    ],
+    "metadata": {
+      "schema": "https://agent-rate-oracle.org/schemas/agent-pricing.schema.json",
+      "regions": ["us-west", "eu-central", "ap-northeast"],
+      "tags": ["code-review", "security", "static-analysis", "devops"]
+    }
+  },
+  {
+    "$comment": "Example 3: Image Generation Provider with per-image pricing",
+    "version": "1.0.0",
+    "agentId": "did:web:pixelforge.studio:agents:diffusion-engine",
+    "provider": {
+      "name": "PixelForge Studio",
+      "type": "tool",
+      "url": "https://pixelforge.studio",
+      "contact": "api@pixelforge.studio"
+    },
+    "updated": "2026-02-24T02:15:00Z",
+    "currency": "USD",
+    "services": [
+      {
+        "skill": "image-generation",
+        "description": "High-quality image generation using state-of-the-art diffusion models with style transfer, inpainting, and upscaling capabilities",
+        "pricing": {
+          "type": "per-image",
+          "base": 0.05,
+          "unit": "image",
+          "volume": {
+            "100": 0.045,
+            "1000": 0.04,
+            "10000": 0.035
+          }
+        },
+        "sla": {
+          "latency_p95_ms": 8000,
+          "uptime": 0.998,
+          "rate_limit": {
+            "requests": 20,
+            "period": "minute"
+          }
+        },
+        "payment": {
+          "protocols": ["stripe", "crypto"],
+          "networks": ["ethereum", "polygon", "solana"],
+          "tokens": ["USDC", "ETH", "SOL"]
+        },
+        "reputation": {
+          "score": 0.96,
+          "reviews": 8291,
+          "successRate": 0.985
+        },
+        "dynamicFactors": {
+          "resolution": {
+            "512x512": 1.0,
+            "1024x1024": 2.0,
+            "2048x2048": 4.0,
+            "4096x4096": 8.0
+          },
+          "quality": {
+            "draft": 0.7,
+            "standard": 1.0,
+            "hd": 1.5,
+            "ultra-hd": 2.5
+          },
+          "features": {
+            "base-generation": 1.0,
+            "style-transfer": 1.3,
+            "inpainting": 1.4,
+            "outpainting": 1.5,
+            "upscaling-4x": 2.0,
+            "video-frames": 3.0
+          },
+          "steps": {
+            "20": 1.0,
+            "50": 1.5,
+            "100": 2.0,
+            "200": 3.0
+          }
+        }
+      }
+    ],
+    "metadata": {
+      "schema": "https://agent-rate-oracle.org/schemas/agent-pricing.schema.json",
+      "regions": ["global"],
+      "tags": ["image-generation", "diffusion", "ai-art", "creative"]
+    }
+  }
+]

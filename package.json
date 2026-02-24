@@ -1,0 +1,49 @@
+{
+  "name": "agora-oracle",
+  "version": "0.4.0",
+  "description": "AGORA: The AI agent marketplace oracle. Real-time pricing, alerts, and predictive forecasting for the AI agent economy.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./sdk": "./src/sdk/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "keywords": [
+    "agent",
+    "oracle",
+    "pricing",
+    "rate",
+    "discovery"
+  ],
+  "author": "Hustle",
+  "license": "MIT",
+  "dependencies": {
+    "@coinbase/x402": "^2.1.0",
+    "axios": "^1.13.5",
+    "better-sqlite3": "^11.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.2.1",
+    "node-cache": "^5.1.2",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2",
+    "sql.js": "^1.14.0",
+    "ws": "^8.19.0",
+    "x402-express": "^1.1.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.18.0",
+    "ajv-formats": "^3.0.1",
+    "jest": "^29.7.0",
+    "supertest": "^7.2.2"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}

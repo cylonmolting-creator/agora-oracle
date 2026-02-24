@@ -1,0 +1,349 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-02-24T00:11:00Z",
+  "categories": [
+    {
+      "id": "text-generation",
+      "name": "Text Generation",
+      "description": "Large language models for generating, completing, and transforming text",
+      "subcategories": [
+        {
+          "id": "general",
+          "name": "General Purpose",
+          "description": "General-purpose text generation, completion, and QA models",
+          "examples": ["GPT-4o", "Claude Opus", "Gemini Pro"]
+        },
+        {
+          "id": "chat",
+          "name": "Chat & Conversation",
+          "description": "Conversational AI and chat-optimized models",
+          "examples": ["GPT-4o-mini", "Claude Sonnet", "Llama 3.3 70B Instruct"]
+        },
+        {
+          "id": "reasoning",
+          "name": "Advanced Reasoning",
+          "description": "Models optimized for complex reasoning, math, and logic",
+          "examples": ["o1", "o3-mini", "DeepSeek-R1"]
+        },
+        {
+          "id": "creative",
+          "name": "Creative Writing",
+          "description": "Story generation, poetry, creative content",
+          "examples": ["Claude Sonnet", "Gemini Pro"]
+        }
+      ]
+    },
+    {
+      "id": "text-translation",
+      "name": "Text Translation",
+      "description": "Machine translation between languages and dialects",
+      "subcategories": [
+        {
+          "id": "major-pairs",
+          "name": "Major Language Pairs",
+          "description": "English, Spanish, French, German, Chinese, Japanese, Korean",
+          "examples": ["en-es", "en-fr", "en-zh", "en-ja"]
+        },
+        {
+          "id": "emerging-pairs",
+          "name": "Emerging Language Pairs",
+          "description": "Arabic, Hindi, Turkish, Portuguese, Russian, Vietnamese",
+          "examples": ["en-ar", "en-hi", "en-tr", "en-pt"]
+        },
+        {
+          "id": "rare-pairs",
+          "name": "Rare Language Pairs",
+          "description": "Low-resource languages and dialects",
+          "examples": ["en-sw", "en-zu", "en-hmn"]
+        }
+      ]
+    },
+    {
+      "id": "code-generation",
+      "name": "Code Generation",
+      "description": "AI models for generating, completing, and refactoring code",
+      "subcategories": [
+        {
+          "id": "general",
+          "name": "General Purpose",
+          "description": "Multi-language code generation and completion",
+          "examples": ["Codex", "CodeLlama", "DeepSeek Coder"]
+        },
+        {
+          "id": "web",
+          "name": "Web Development",
+          "description": "JavaScript, TypeScript, React, HTML, CSS",
+          "examples": ["Cursor", "GitHub Copilot"]
+        },
+        {
+          "id": "mobile",
+          "name": "Mobile Development",
+          "description": "Swift, Kotlin, React Native, Flutter",
+          "examples": ["GitHub Copilot"]
+        },
+        {
+          "id": "data",
+          "name": "Data & ML",
+          "description": "Python, SQL, data analysis, ML model code",
+          "examples": ["CodeLlama Python"]
+        }
+      ]
+    },
+    {
+      "id": "code-review",
+      "name": "Code Review",
+      "description": "Automated code review, bug detection, and security scanning",
+      "subcategories": [
+        {
+          "id": "security",
+          "name": "Security Scanning",
+          "description": "Vulnerability detection, OWASP checks, dependency audits",
+          "examples": ["Snyk", "SonarQube"]
+        },
+        {
+          "id": "quality",
+          "name": "Code Quality",
+          "description": "Linting, style checking, best practices",
+          "examples": ["CodeRabbit", "DeepCode"]
+        },
+        {
+          "id": "performance",
+          "name": "Performance Analysis",
+          "description": "Performance bottlenecks, memory leaks, optimization suggestions",
+          "examples": ["CodeGuru"]
+        }
+      ]
+    },
+    {
+      "id": "image-generation",
+      "name": "Image Generation",
+      "description": "AI models for creating images from text prompts",
+      "subcategories": [
+        {
+          "id": "standard",
+          "name": "Standard Resolution",
+          "description": "512x512 to 1024x1024 image generation",
+          "examples": ["DALL-E 3", "Stable Diffusion 3", "Midjourney"]
+        },
+        {
+          "id": "hd",
+          "name": "High Definition",
+          "description": "2K, 4K, and higher resolution images",
+          "examples": ["DALL-E 3 HD", "Midjourney --ar 16:9"]
+        },
+        {
+          "id": "video",
+          "name": "Video Generation",
+          "description": "Text-to-video and image-to-video models",
+          "examples": ["Runway Gen-3", "Pika", "Sora"]
+        }
+      ]
+    },
+    {
+      "id": "voice-transcription",
+      "name": "Voice Transcription",
+      "description": "Speech-to-text and audio transcription services",
+      "subcategories": [
+        {
+          "id": "general",
+          "name": "General Transcription",
+          "description": "Standard speech-to-text for meetings, podcasts, interviews",
+          "examples": ["Whisper", "AssemblyAI", "Deepgram"]
+        },
+        {
+          "id": "realtime",
+          "name": "Real-time Transcription",
+          "description": "Live streaming transcription with low latency",
+          "examples": ["Deepgram Nova", "AssemblyAI Streaming"]
+        },
+        {
+          "id": "multi-speaker",
+          "name": "Multi-speaker Diarization",
+          "description": "Identify and separate multiple speakers",
+          "examples": ["AssemblyAI Diarization", "Rev AI"]
+        }
+      ]
+    },
+    {
+      "id": "voice-synthesis",
+      "name": "Voice Synthesis",
+      "description": "Text-to-speech and voice cloning services",
+      "subcategories": [
+        {
+          "id": "standard",
+          "name": "Standard TTS",
+          "description": "Basic text-to-speech with pre-defined voices",
+          "examples": ["ElevenLabs", "Google TTS", "Amazon Polly"]
+        },
+        {
+          "id": "cloning",
+          "name": "Voice Cloning",
+          "description": "Custom voice creation from audio samples",
+          "examples": ["ElevenLabs Voice Cloning", "PlayHT"]
+        },
+        {
+          "id": "multilingual",
+          "name": "Multilingual TTS",
+          "description": "Multi-language text-to-speech",
+          "examples": ["ElevenLabs Multilingual", "Azure TTS"]
+        }
+      ]
+    },
+    {
+      "id": "data-analysis",
+      "name": "Data Analysis",
+      "description": "AI-powered data analysis, insights, and visualization",
+      "subcategories": [
+        {
+          "id": "sql",
+          "name": "SQL Generation",
+          "description": "Natural language to SQL query generation",
+          "examples": ["Text-to-SQL models"]
+        },
+        {
+          "id": "insights",
+          "name": "Insights Extraction",
+          "description": "Automated pattern detection and insights from datasets",
+          "examples": ["Julius AI", "DataRobot"]
+        },
+        {
+          "id": "visualization",
+          "name": "Data Visualization",
+          "description": "Automatic chart and graph generation",
+          "examples": ["Tableau AI", "Power BI Copilot"]
+        }
+      ]
+    },
+    {
+      "id": "document-processing",
+      "name": "Document Processing",
+      "description": "OCR, document parsing, and information extraction",
+      "subcategories": [
+        {
+          "id": "ocr",
+          "name": "OCR (Optical Character Recognition)",
+          "description": "Extract text from images and scanned documents",
+          "examples": ["Tesseract", "Azure Document Intelligence"]
+        },
+        {
+          "id": "parsing",
+          "name": "Document Parsing",
+          "description": "Extract structured data from PDFs, invoices, receipts",
+          "examples": ["Docsumo", "Rossum"]
+        },
+        {
+          "id": "summarization",
+          "name": "Document Summarization",
+          "description": "Summarize long documents, reports, contracts",
+          "examples": ["Claude with long context", "GPT-4o"]
+        }
+      ]
+    },
+    {
+      "id": "search-web",
+      "name": "Web Search",
+      "description": "AI-powered web search and information retrieval",
+      "subcategories": [
+        {
+          "id": "general",
+          "name": "General Web Search",
+          "description": "Traditional search engine augmented with AI",
+          "examples": ["Perplexity", "You.com", "Bing AI"]
+        },
+        {
+          "id": "semantic",
+          "name": "Semantic Search",
+          "description": "Meaning-based search with AI understanding",
+          "examples": ["Exa", "Metaphor"]
+        },
+        {
+          "id": "research",
+          "name": "Research & Citations",
+          "description": "Academic and research-focused search",
+          "examples": ["Consensus", "Elicit"]
+        }
+      ]
+    },
+    {
+      "id": "search-code",
+      "name": "Code Search",
+      "description": "Search and discovery within codebases",
+      "subcategories": [
+        {
+          "id": "github",
+          "name": "GitHub Search",
+          "description": "Search across public GitHub repositories",
+          "examples": ["GitHub Code Search", "Sourcegraph"]
+        },
+        {
+          "id": "semantic",
+          "name": "Semantic Code Search",
+          "description": "Natural language queries for code functionality",
+          "examples": ["Sourcegraph Cody", "Phind"]
+        },
+        {
+          "id": "private",
+          "name": "Private Repo Search",
+          "description": "Search within private codebases",
+          "examples": ["Sourcegraph Enterprise"]
+        }
+      ]
+    },
+    {
+      "id": "task-automation",
+      "name": "Task Automation",
+      "description": "Workflow automation and process orchestration",
+      "subcategories": [
+        {
+          "id": "workflow",
+          "name": "Workflow Automation",
+          "description": "Multi-step task orchestration and execution",
+          "examples": ["Zapier AI", "Make (Integromat)"]
+        },
+        {
+          "id": "rpa",
+          "name": "RPA (Robotic Process Automation)",
+          "description": "Browser automation, UI interaction, data entry",
+          "examples": ["UiPath", "Automation Anywhere"]
+        },
+        {
+          "id": "scheduling",
+          "name": "Task Scheduling",
+          "description": "Cron jobs, scheduled tasks, background jobs",
+          "examples": ["Temporal", "Inngest"]
+        }
+      ]
+    },
+    {
+      "id": "agent-orchestration",
+      "name": "Agent Orchestration",
+      "description": "Multi-agent coordination, planning, and execution",
+      "subcategories": [
+        {
+          "id": "planning",
+          "name": "Planning & Reasoning",
+          "description": "Task decomposition, planning, and strategy",
+          "examples": ["AutoGPT", "BabyAGI"]
+        },
+        {
+          "id": "multi-agent",
+          "name": "Multi-agent Coordination",
+          "description": "Orchestrate multiple AI agents collaboratively",
+          "examples": ["CrewAI", "AutoGen"]
+        },
+        {
+          "id": "tool-use",
+          "name": "Tool Use & Function Calling",
+          "description": "Agent systems that call external tools and APIs",
+          "examples": ["LangChain Agents", "LlamaIndex Agents"]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalCategories": 13,
+    "totalSubcategories": 41,
+    "coverage": "AI services, LLMs, voice, vision, automation, orchestration",
+    "lastUpdated": "2026-02-24T00:11:00Z"
+  }
+}

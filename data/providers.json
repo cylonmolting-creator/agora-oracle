@@ -1,0 +1,699 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-24T00:14:00Z",
+  "totalProviders": 20,
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "url": "https://openai.com",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "GPT-4o - flagship multimodal model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.50,
+            "outputPrice": 10.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://openai.com/api/pricing/",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "GPT-4o-mini - budget-friendly variant",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.15,
+            "outputPrice": 0.60,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://openai.com/api/pricing/",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "url": "https://anthropic.com",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "reasoning",
+          "description": "Claude Opus 4.6 - flagship reasoning model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 5.00,
+            "outputPrice": 25.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Claude Sonnet 4.5 - balanced performance",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 3.00,
+            "outputPrice": 15.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Claude Haiku 4.5 - fast and affordable",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 1.00,
+            "outputPrice": 5.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google AI",
+      "url": "https://ai.google.dev",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Gemini 3 Pro Preview - flagship model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.00,
+            "outputPrice": 12.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Gemini 2.5 Pro - production model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 1.25,
+            "outputPrice": 10.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Gemini 2.5 Flash-Lite - budget option",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.10,
+            "outputPrice": 0.40,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://ai.google.dev/gemini-api/docs/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "url": "https://deepseek.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "reasoning",
+          "description": "DeepSeek-R1 - reasoning model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.12,
+            "outputPrice": 0.20,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "DeepSeek-V3 - general purpose model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.14,
+            "outputPrice": 0.28,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://api-docs.deepseek.com/quick_start/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "url": "https://mistral.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Mistral Large 3 - flagship model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.00,
+            "outputPrice": 5.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://mistral.ai/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Mistral Nemo - budget model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.02,
+            "outputPrice": 0.05,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://mistral.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "url": "https://x.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Grok 4 - flagship model with 2M context",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 3.00,
+            "outputPrice": 15.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://groq.com/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Grok 4.1 Fast - speed-optimized",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.20,
+            "outputPrice": 0.50,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://groq.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "stability-ai",
+      "name": "Stability AI",
+      "url": "https://stability.ai",
+      "type": "tool",
+      "services": [
+        {
+          "category": "image-generation",
+          "subcategory": "hd",
+          "description": "SD 3.5 Large - high-quality image generation",
+          "pricing": {
+            "type": "per-image",
+            "base": 0.065,
+            "unit": "image",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://platform.stability.ai/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "image-generation",
+          "subcategory": "standard",
+          "description": "Stable Image Core - fast and affordable",
+          "pricing": {
+            "type": "per-image",
+            "base": 0.03,
+            "unit": "image",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://platform.stability.ai/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "image-generation",
+          "subcategory": "standard",
+          "description": "SDXL - Stable Diffusion XL",
+          "pricing": {
+            "type": "per-image",
+            "base": 0.011,
+            "unit": "image",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://platform.stability.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "url": "https://elevenlabs.io",
+      "type": "tool",
+      "services": [
+        {
+          "category": "voice-synthesis",
+          "subcategory": "standard",
+          "description": "Text-to-speech - standard voices",
+          "pricing": {
+            "type": "per-request",
+            "base": 0.18,
+            "unit": "1000 characters",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://elevenlabs.io/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "assemblyai",
+      "name": "AssemblyAI",
+      "url": "https://assemblyai.com",
+      "type": "tool",
+      "services": [
+        {
+          "category": "voice-transcription",
+          "subcategory": "general",
+          "description": "Speech-to-text transcription",
+          "pricing": {
+            "type": "per-minute",
+            "base": 0.0061,
+            "unit": "minute",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.assemblyai.com/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "voice-transcription",
+          "subcategory": "realtime",
+          "description": "Streaming speech-to-text",
+          "pricing": {
+            "type": "per-minute",
+            "base": 0.0061,
+            "unit": "minute",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.assemblyai.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity AI",
+      "url": "https://perplexity.ai",
+      "type": "agent",
+      "services": [
+        {
+          "category": "search-web",
+          "subcategory": "general",
+          "description": "Sonar - web search with AI",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 1.00,
+            "outputPrice": 1.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://docs.perplexity.ai/docs/getting-started/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "search-web",
+          "subcategory": "research",
+          "description": "Sonar Deep Research - advanced search",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.00,
+            "outputPrice": 8.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://docs.perplexity.ai/docs/getting-started/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "replicate",
+      "name": "Replicate",
+      "url": "https://replicate.com",
+      "type": "tool",
+      "services": [
+        {
+          "category": "image-generation",
+          "subcategory": "standard",
+          "description": "SDXL via Replicate",
+          "pricing": {
+            "type": "per-image",
+            "base": 0.012,
+            "unit": "prediction",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://replicate.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "together-ai",
+      "name": "Together AI",
+      "url": "https://together.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.2 3B - small open model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.06,
+            "outputPrice": 0.06,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.together.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "url": "https://groq.com",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.3 70B - ultra-fast inference",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.59,
+            "outputPrice": 0.99,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://groq.com/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 4 Scout - latest model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.11,
+            "outputPrice": 0.34,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://groq.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "fireworks-ai",
+      "name": "Fireworks AI",
+      "url": "https://fireworks.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Gemma 3 27B Instruct - open model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.90,
+            "outputPrice": 0.90,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://fireworks.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "url": "https://cohere.com",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Command R - general purpose",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.15,
+            "outputPrice": 0.60,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://cohere.com/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Command R+ - advanced model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.50,
+            "outputPrice": 10.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://cohere.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "huggingface",
+      "name": "HuggingFace",
+      "url": "https://huggingface.co",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Inference Endpoints - pay-as-you-go",
+          "pricing": {
+            "type": "per-hour",
+            "base": 0.03,
+            "unit": "hour",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://huggingface.co/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "url": "https://cerebras.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.1 405B - ultra-fast inference",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 6.00,
+            "outputPrice": 12.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.cerebras.ai/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.1 70B - fast inference",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.60,
+            "outputPrice": 0.60,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.cerebras.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "aws-bedrock",
+      "name": "AWS Bedrock",
+      "url": "https://aws.amazon.com/bedrock",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "reasoning",
+          "description": "Claude 3 Opus on Bedrock",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 15.00,
+            "outputPrice": 75.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://aws.amazon.com/bedrock/pricing/",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.3 70B on Bedrock",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.72,
+            "outputPrice": 0.72,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://aws.amazon.com/bedrock/pricing/",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "azure-openai",
+      "name": "Azure OpenAI",
+      "url": "https://azure.microsoft.com/en-us/products/ai-services/openai-service",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "GPT-4o on Azure",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.50,
+            "outputPrice": 10.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "google-vertex-ai",
+      "name": "Google Vertex AI",
+      "url": "https://cloud.google.com/vertex-ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Gemini 2.5 Pro on Vertex AI",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 1.25,
+            "outputPrice": 10.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    }
+  ]
+}

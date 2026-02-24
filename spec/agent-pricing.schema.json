@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agentrate.oracle/schemas/agent-pricing.json",
+  "title": "Agent Pricing Specification",
+  "description": "Standard format for AI agent service pricing discovery and oracle feeds",
+  "type": "object",
+  "required": [
+    "version",
+    "agentId",
+    "provider",
+    "updated",
+    "currency",
+    "services"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Spec version (e.g., '1.0.0')",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "agentId": {
+      "type": "string",
+      "description": "Unique identifier for the agent (e.g., DID, UUID, or domain)",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "object",
+      "required": ["name", "type"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Provider display name"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["llm", "agent", "tool", "service"],
+          "description": "Type of service provider"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Provider website or API endpoint"
+        },
+        "contact": {
+          "type": "string",
+          "description": "Contact email or support URL"
+        }
+      }
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp (ISO 8601)"
+    },
+    "currency": {
+      "type": "string",
+      "description": "Base currency for all prices (ISO 4217 code or crypto symbol)",
+      "default": "USD",
+      "examples": ["USD", "EUR", "ETH", "USDC"]
+    },
+    "services": {
+      "type": "array",
+      "description": "List of services offered by this agent",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["skill", "pricing"],
+        "properties": {
+          "skill": {
+            "type": "string",
+            "description": "Service capability identifier (e.g., 'text-generation', 'code-review', 'image-generation')"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable service description"
+          },
+          "pricing": {
+            "type": "object",
+            "required": ["type", "base", "unit"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "per-request",
+                  "per-token",
+                  "per-minute",
+                  "per-second",
+                  "per-hour",
+                  "per-image",
+                  "per-mb",
+                  "flat-rate",
+                  "subscription"
+                ],
+                "description": "Pricing model type"
+              },
+              "base": {
+                "type": "number",
+                "description": "Base price per unit",
+                "minimum": 0
+              },
+              "unit": {
+                "type": "string",
+                "description": "Unit of measurement (e.g., 'request', 'token', 'minute', 'image', 'mb')"
+              },
+              "inputPrice": {
+                "type": "number",
+                "description": "Price for input tokens/data (if applicable)",
+                "minimum": 0
+              },
+              "outputPrice": {
+                "type": "number",
+                "description": "Price for output tokens/data (if applicable)",
+                "minimum": 0
+              },
+              "volume": {
+                "type": "object",
+                "description": "Volume-based pricing tiers",
+                "additionalProperties": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "sla": {
+            "type": "object",
+            "description": "Service Level Agreement metrics",
+            "properties": {
+              "latency_p95_ms": {
+                "type": "number",
+                "description": "95th percentile response latency in milliseconds",
+                "minimum": 0
+              },
+              "uptime": {
+                "type": "number",
+                "description": "Uptime percentage (0.0 to 1.0)",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "rate_limit": {
+                "type": "object",
+                "properties": {
+                  "requests": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "period": {
+                    "type": "string",
+                    "description": "Time period (e.g., 'minute', 'hour', 'day')"
+                  }
+                }
+              }
+            }
+          },
+          "payment": {
+            "type": "object",
+            "description": "Payment protocols and methods",
+            "properties": {
+              "protocols": {
+                "type": "array",
+                "description": "Supported payment protocols",
+                "items": {
+                  "type": "string",
+                  "examples": ["x402", "stripe", "crypto", "invoice"]
+                }
+              },
+              "networks": {
+                "type": "array",
+                "description": "Blockchain networks for crypto payments",
+                "items": {
+                  "type": "string",
+                  "examples": ["ethereum", "polygon", "solana", "base"]
+                }
+              },
+              "tokens": {
+                "type": "array",
+                "description": "Accepted token contracts",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "reputation": {
+            "type": "object",
+            "description": "Service reputation metrics",
+            "properties": {
+              "score": {
+                "type": "number",
+                "description": "Reputation score (0.0 to 1.0)",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "reviews": {
+                "type": "integer",
+                "description": "Number of reviews",
+                "minimum": 0
+              },
+              "successRate": {
+                "type": "number",
+                "description": "Success rate percentage (0.0 to 1.0)",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "dynamicFactors": {
+            "type": "object",
+            "description": "Dynamic pricing factors (e.g., language pairs, quality tiers)",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata",
+      "additionalProperties": true
+    }
+  }
+}
