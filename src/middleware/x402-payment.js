@@ -28,7 +28,7 @@ const premiumEndpoints = {
     description: 'AGORA Smart Router — AI provider routing with cost optimization. Save 50-80% on AI API costs.',
     discoverable: true
   },
-  'GET /v1/analytics/*': {
+  'GET /v1/analytics/:agentId': {
     price: '0.0005',
     currency: 'USDC',
     network: 'base',
@@ -37,6 +37,7 @@ const premiumEndpoints = {
   },
 
   // Feature 2: Agent Service Comparison (v3 Phase 1)
+  // NOTE: GET /v1/agent-services (list all) is FREE
   'GET /v1/agent-services/compare': {
     price: '0.0005',
     currency: 'USDC',
@@ -44,7 +45,7 @@ const premiumEndpoints = {
     description: 'AGORA Agent Marketplace — Compare x402 Bazaar agent services (Kayak.com for AI agents)',
     discoverable: true
   },
-  'GET /v1/agent-services/*': {
+  'GET /v1/agent-services/:serviceId': {
     price: '0.0003',
     currency: 'USDC',
     network: 'base',
@@ -62,6 +63,7 @@ const premiumEndpoints = {
   },
 
   // Feature 4: Predictive Pricing (v3 Phase 3)
+  // Wildcard match — x402 for ALL /v1/forecast/* EXCEPT /status and /generate (handled in middleware wrapper)
   'GET /v1/forecast/*': {
     price: '0.001',
     currency: 'USDC',
@@ -91,13 +93,26 @@ const premiumEndpoints = {
  */
 export function x402Middleware() {
   const walletAddress = getWalletAddress();
-  return createX402Middleware(
+  const baseMiddleware = createX402Middleware(
     walletAddress,      // payTo address (Base network)
     premiumEndpoints,   // routes configuration
     process.env.CDP_API_KEY ? {  // facilitator config (optional)
       apiKey: process.env.CDP_API_KEY
     } : undefined
   );
+
+  // Custom wrapper to handle excludePaths for /v1/forecast/*
+  const freeForecasts = ['/v1/forecast/status', '/v1/forecast/generate'];
+
+  return (req, res, next) => {
+    // Check if this is a free forecast endpoint
+    if (freeForecasts.some(path => req.path.startsWith(path))) {
+      return next(); // Skip x402 check
+    }
+
+    // Otherwise, apply x402 middleware
+    return baseMiddleware(req, res, next);
+  };
 }
 
 /**
