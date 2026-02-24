@@ -61,9 +61,14 @@ app.use((req, res, next) => {
 const publicPath = path.join(__dirname, '..', 'public');
 app.use(express.static(publicPath));
 
-// Root redirect to index.html
+// Root - serve landing page (index.html)
 app.get('/', (req, res) => {
-  res.redirect('/index.html');
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
+// Dashboard route - serve dashboard.html
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(publicPath, 'dashboard.html'));
 });
 
 // Health endpoint
