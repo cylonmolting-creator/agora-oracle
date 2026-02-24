@@ -54,83 +54,49 @@
             padding: 40px 20px;
         }
 
-        /* ASCII Art Header */
-        .ascii-header {
-            font-size: 14px;
-            line-height: 1.2;
-            white-space: pre;
-            color: #0ff;
-            text-shadow: 0 0 10px #0ff;
-            margin-bottom: 40px;
-            animation: flicker 3s infinite;
+        /* Main Title */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
         }
 
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        /* Glitch Title */
-        .glitch {
-            font-size: 72px;
+        .hero-title {
+            font-family: 'VT323', monospace;
+            font-size: 120px;
             font-weight: bold;
-            text-transform: uppercase;
-            position: relative;
-            text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-                        -0.025em -0.05em 0 rgba(0,255,0,0.75),
-                        0.025em 0.05em 0 rgba(0,0,255,0.75);
-            animation: glitch 500ms infinite;
+            color: #0ff;
+            letter-spacing: 20px;
+            text-shadow:
+                0 0 20px rgba(0, 255, 255, 0.8),
+                0 0 40px rgba(0, 255, 255, 0.4),
+                0 0 80px rgba(0, 255, 255, 0.2);
+            margin-bottom: 0;
+            line-height: 1;
         }
 
-        @keyframes glitch {
-            0% {
-                text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-                            -0.025em -0.05em 0 rgba(0,255,0,0.75),
-                            0.025em 0.05em 0 rgba(0,0,255,0.75);
-            }
-            14% {
-                text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-                            -0.025em -0.05em 0 rgba(0,255,0,0.75),
-                            0.025em 0.05em 0 rgba(0,0,255,0.75);
-            }
-            15% {
-                text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
-                            0.025em 0.025em 0 rgba(0,255,0,0.75),
-                            -0.05em -0.05em 0 rgba(0,0,255,0.75);
-            }
-            49% {
-                text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75),
-                            0.025em 0.025em 0 rgba(0,255,0,0.75),
-                            -0.05em -0.05em 0 rgba(0,0,255,0.75);
-            }
-            50% {
-                text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
-                            0.05em 0 0 rgba(0,255,0,0.75),
-                            0 -0.05em 0 rgba(0,0,255,0.75);
-            }
-            99% {
-                text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75),
-                            0.05em 0 0 rgba(0,255,0,0.75),
-                            0 -0.05em 0 rgba(0,0,255,0.75);
-            }
-            100% {
-                text-shadow: -0.025em 0 0 rgba(255,0,0,0.75),
-                            -0.025em -0.025em 0 rgba(0,255,0,0.75),
-                            -0.025em -0.05em 0 rgba(0,0,255,0.75);
-            }
+        .hero-subtitle {
+            font-size: 28px;
+            color: #0f0;
+            letter-spacing: 12px;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+        }
+
+        .hero-line {
+            width: 80%;
+            max-width: 600px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0ff, transparent);
+            margin: 30px auto;
+            box-shadow: 0 0 10px #0ff;
         }
 
         .tagline {
-            font-size: 32px;
+            font-size: 24px;
             color: #ff00ff;
-            text-shadow: 0 0 20px #ff00ff;
-            margin: 20px 0 60px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+            margin: 0 0 60px;
+            letter-spacing: 4px;
         }
 
         /* Terminal Box */
@@ -321,14 +287,17 @@
         }
 
         @media (max-width: 768px) {
-            .glitch {
-                font-size: 36px;
+            .hero-title {
+                font-size: 60px;
+                letter-spacing: 10px;
+            }
+            .hero-subtitle {
+                font-size: 16px;
+                letter-spacing: 6px;
             }
             .tagline {
-                font-size: 20px;
-            }
-            .ascii-header {
-                font-size: 8px;
+                font-size: 16px;
+                letter-spacing: 2px;
             }
         }
     </style>
@@ -339,17 +308,12 @@
     <a href="/dashboard" class="dashboard-link">ADMIN_PANEL.exe</a>
 
     <div class="container">
-        <div class="ascii-header">
- █████╗  ██████╗  ██████╗ ██████╗  █████╗     ██████╗ ██████╗  █████╗  ██████╗██╗     ███████╗
-██╔══██╗██╔════╝ ██╔═══██╗██╔══██╗██╔══██╗   ██╔═══██╗██╔══██╗██╔══██╗██╔════╝██║     ██╔════╝
-███████║██║  ███╗██║   ██║██████╔╝███████║   ██║   ██║██████╔╝███████║██║     ██║     █████╗
-██╔══██║██║   ██║██║   ██║██╔══██╗██╔══██║   ██║   ██║██╔══██╗██╔══██║██║     ██║     ██╔══╝
-██║  ██║╚██████╔╝╚██████╔╝██║  ██║██║  ██║   ╚██████╔╝██║  ██║██║  ██║╚██████╗███████╗███████╗
-╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚══════╝
+        <div class="hero">
+            <div class="hero-title">AGORA</div>
+            <div class="hero-subtitle">AGENTIC AI PRICE ORACLE</div>
+            <div class="hero-line"></div>
+            <p class="tagline">REAL-TIME PRICING FOR AUTONOMOUS AGENTS</p>
         </div>
-
-        <h1 class="glitch">AGENTIC AI PRICE ORACLE</h1>
-        <p class="tagline">>> REAL-TIME PRICING FOR AUTONOMOUS AGENTS &lt;&lt;</p>
 
         <div class="stats">
             <div class="stat">

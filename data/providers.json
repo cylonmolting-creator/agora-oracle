@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "lastUpdated": "2026-02-24T00:14:00Z",
-  "totalProviders": 20,
+  "totalProviders": 31,
   "providers": [
     {
       "id": "openai",
@@ -691,6 +691,270 @@
           },
           "source": "official-api",
           "sourceUrl": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "ai21",
+      "name": "AI21 Labs",
+      "url": "https://ai21.com",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Jamba 1.5 Large - 256K context model",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 2.00,
+            "outputPrice": 8.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.ai21.com/pricing",
+          "lastVerified": "2026-02-24"
+        },
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Jamba 1.5 Mini - fast and affordable",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.20,
+            "outputPrice": 0.40,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.ai21.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "sambanova",
+      "name": "SambaNova",
+      "url": "https://sambanova.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.1 405B - fastest inference",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 5.00,
+            "outputPrice": 10.00,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://sambanova.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "url": "https://openrouter.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Multi-provider routing - 200+ models",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.10,
+            "outputPrice": 0.30,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://openrouter.ai/docs/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "lepton-ai",
+      "name": "Lepton AI",
+      "url": "https://lepton.ai",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "LLM inference - serverless GPU",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.07,
+            "outputPrice": 0.07,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.lepton.ai/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "anyscale",
+      "name": "Anyscale",
+      "url": "https://anyscale.com",
+      "type": "llm",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Llama 3.1 70B - Ray-powered inference",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.59,
+            "outputPrice": 0.59,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.anyscale.com/endpoints",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "runpod",
+      "name": "RunPod",
+      "url": "https://runpod.io",
+      "type": "tool",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Serverless GPU inference",
+          "pricing": {
+            "type": "per-second",
+            "base": 0.00025,
+            "unit": "second",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://www.runpod.io/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "modal",
+      "name": "Modal",
+      "url": "https://modal.com",
+      "type": "tool",
+      "services": [
+        {
+          "category": "text-generation",
+          "subcategory": "general",
+          "description": "Serverless GPU - pay per second",
+          "pricing": {
+            "type": "per-second",
+            "base": 0.000164,
+            "unit": "GPU-second",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://modal.com/pricing",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "voyage-ai",
+      "name": "Voyage AI",
+      "url": "https://voyageai.com",
+      "type": "tool",
+      "services": [
+        {
+          "category": "embeddings",
+          "subcategory": "general",
+          "description": "Voyage 3 - state-of-the-art embeddings",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.06,
+            "outputPrice": 0.06,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://docs.voyageai.com/pricing/",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "jina-ai",
+      "name": "Jina AI",
+      "url": "https://jina.ai",
+      "type": "tool",
+      "services": [
+        {
+          "category": "embeddings",
+          "subcategory": "general",
+          "description": "Jina Embeddings v3 - multilingual",
+          "pricing": {
+            "type": "per-token",
+            "inputPrice": 0.02,
+            "outputPrice": 0.02,
+            "unit": "million tokens",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://jina.ai/embeddings/",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "url": "https://ideogram.ai",
+      "type": "tool",
+      "services": [
+        {
+          "category": "image-generation",
+          "subcategory": "hd",
+          "description": "Ideogram 2.0 - text-to-image with typography",
+          "pricing": {
+            "type": "per-image",
+            "base": 0.08,
+            "unit": "image",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://ideogram.ai/api",
+          "lastVerified": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "id": "black-forest-labs",
+      "name": "Black Forest Labs",
+      "url": "https://blackforestlabs.ai",
+      "type": "tool",
+      "services": [
+        {
+          "category": "image-generation",
+          "subcategory": "hd",
+          "description": "FLUX 1.1 Pro - high quality image generation",
+          "pricing": {
+            "type": "per-image",
+            "base": 0.04,
+            "unit": "image",
+            "currency": "USD"
+          },
+          "source": "official-api",
+          "sourceUrl": "https://docs.bfl.ml/pricing",
           "lastVerified": "2026-02-24"
         }
       ]
