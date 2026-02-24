@@ -815,11 +815,8 @@ function init() {
   // Set up Agent Marketplace event listeners
   document.getElementById('search-agents-btn')?.addEventListener('click', () => {
     const skill = document.getElementById('marketplace-skill-input').value.trim();
-    if (skill) {
-      searchAgentServices(skill);
-    } else {
-      alert('Please enter a skill (e.g., text-generation/chat)');
-    }
+    // Skill is now optional - empty means show all agents
+    searchAgentServices(skill);
   });
 
   // Set up Price Alert event listeners
@@ -852,24 +849,84 @@ function init() {
  */
 async function searchAgentServices(skill) {
   try {
-    const response = await fetch(`${API_BASE}/v1/agent-services/compare?skill=${encodeURIComponent(skill)}`);
+    // Use free endpoint and filter client-side
+    const response = await fetch(`${API_BASE}/v1/agent-services`);
 
     if (!response.ok) {
-      if (response.status === 400) {
-        alert('Invalid skill. Please use format: category/subcategory (e.g., text-generation/chat)');
-        return;
-      }
       throw new Error(`HTTP ${response.status}`);
     }
 
     const result = await response.json();
 
     if (result.success) {
-      const data = result.data;
+      let agents = result.data;
+
+      // Filter by skill if provided
+      if (skill && skill.trim()) {
+        const skillLower = skill.trim().toLowerCase();
+        agents = agents.filter(agent =>
+          agent.skill && agent.skill.toLowerCase().includes(skillLower)
+        );
+
+        if (agents.length === 0) {
+          alert(`No agents found for skill: ${skill}\n\nTry a broader search like "text-generation" or "embeddings"`);
+          return;
+        }
+      }
+
+      // Calculate market stats client-side
+      const prices = agents.map(a => a.price).filter(p => p > 0);
+      const marketMedian = prices.length > 0
+        ? prices.sort((a, b) => a - b)[Math.floor(prices.length / 2)]
+        : 0;
+
+      const priceRange = {
+        min: Math.min(...prices),
+        max: Math.max(...prices)
+      };
+
+      const avgUptime = agents.reduce((sum, a) => sum + (a.uptime || 0), 0) / agents.length;
+
+      // Calculate savings and ranking
+      agents = agents.map((agent, index) => ({
+        ...agent,
+        ranking: index + 1,
+        savings: marketMedian > 0 ? ((marketMedian - agent.price) / marketMedian * 100) : 0,
+        isBestValue: false
+      }));
+
+      // Sort by price (cheapest first)
+      agents.sort((a, b) => a.price - b.price);
+
+      // Mark cheapest as best value
+      if (agents.length > 0) {
+        agents[0].isBestValue = true;
+      }
+
+      // Re-rank after sorting
+      agents.forEach((agent, index) => {
+        agent.ranking = index + 1;
+      });
+
+      const data = {
+        skill: skill || 'all',
+        agents,
+        marketMedian,
+        cheapest: agents[0],
+        bestValue: agents[0],
+        meta: {
+          totalAgents: agents.length,
+          avgUptime,
+          priceRange
+        }
+      };
+
       renderAgentComparison(data);
 
       // Store last search in localStorage
-      localStorage.setItem('agora_last_agent_search', skill);
+      if (skill) {
+        localStorage.setItem('agora_last_agent_search', skill);
+      }
     } else {
       alert('Failed to search agents: ' + (result.error || 'Unknown error'));
     }
