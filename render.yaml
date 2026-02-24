@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: agora-oracle
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AGORA_WALLET_ADDRESS
+        sync: false
+      - key: CDP_API_KEY
+        sync: false
+      - key: CDP_API_SECRET
+        sync: false
