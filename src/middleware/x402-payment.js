@@ -63,12 +63,19 @@ const premiumEndpoints = {
   },
 
   // Feature 4: Predictive Pricing (v3 Phase 3)
-  // Wildcard match — x402 for ALL /v1/forecast/* EXCEPT /status and /generate (handled in middleware wrapper)
-  'GET /v1/forecast/*': {
+  // Explicit gated routes (not wildcard to avoid matching /status and /generate)
+  'GET /v1/forecast/:skill': {
     price: '0.001',
     currency: 'USDC',
     network: 'base',
     description: 'AGORA Forecast — 7-day AI API price prediction with trend analysis (ML-powered)',
+    discoverable: true
+  },
+  'GET /v1/forecast/:skill/accuracy': {
+    price: '0.001',
+    currency: 'USDC',
+    network: 'base',
+    description: 'AGORA Forecast Accuracy — Model accuracy metrics (backtesting results)',
     discoverable: true
   }
 };
@@ -101,18 +108,9 @@ export function x402Middleware() {
     } : undefined
   );
 
-  // Custom wrapper to handle excludePaths for /v1/forecast/*
-  const freeForecasts = ['/v1/forecast/status', '/v1/forecast/generate'];
-
-  return (req, res, next) => {
-    // Check if this is a free forecast endpoint
-    if (freeForecasts.some(path => req.path.startsWith(path))) {
-      return next(); // Skip x402 check
-    }
-
-    // Otherwise, apply x402 middleware
-    return baseMiddleware(req, res, next);
-  };
+  // Return the x402 middleware
+  // Explicit routes mean /status and /generate are NOT x402-gated
+  return baseMiddleware;
 }
 
 /**
